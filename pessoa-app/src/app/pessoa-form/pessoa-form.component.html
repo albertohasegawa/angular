@@ -1,0 +1,13 @@
+<fieldset>
+  <legend>Pessoa</legend>
+  <form>
+  
+  Nome: <input [(ngModel)]="pessoa.nome" ><br>
+  Sobrenome: <input [(ngModel)]="pessoa.sobrenome"><br>
+    Sexo: <select>
+        <option *ngFor="let index of sexos ; let i=index"></option>
+    </select>
+  </form>
+
+</fieldset>
+  
