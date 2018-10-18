@@ -18,9 +18,12 @@ export class PessoaFormComponent implements OnInit {
 
 
   constructor() { }
+  pes:Pessoa;
+  listaPessoas: Array<Pessoa>;
 
   ngOnInit() {
-
+    this.pes = new Pessoa;
+    this.listaPessoas = new Array<Pessoa>();
   }
-
+  
 }
