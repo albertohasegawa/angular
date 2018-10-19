@@ -1,6 +1,15 @@
 export class Pessoa {
-    id:  number;
     nome: string;
-    sobrenome: string;
-    sexo: string;
+    email: string;
+    cpf: string;
+     enderecodto: {
+        cep: string;
+        logradouro: string;
+        numero: string;
+        complemento: string;
+        bairro: string;
+        cidade: string;
+        uf: string;
+    }
+    
 }
