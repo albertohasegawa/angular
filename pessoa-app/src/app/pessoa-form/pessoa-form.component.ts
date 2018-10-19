@@ -15,11 +15,27 @@ export class PessoaFormComponent implements OnInit {
 
   selectedValue: string;
   sexos:string[] = ['Masculino', 'Feminino', 'Outro'];
-
-
-  constructor() { }
   pes:Pessoa;
   listaPessoas: Array<Pessoa>;
+  contador: number = 0;
+  salvar() {
+    this.pes.id = this.contador;
+    this.contador++;
+    this.listaPessoas.push(this.pes);
+    console.log(this.listaPessoas);
+    this.pes = new Pessoa;
+    
+  }
+
+  excluir(item: number) {
+    this.listaPessoas.splice(this.listaPessoas[item].id, 1);
+  }
+
+  alterar(item: number) {
+    
+  }
+
+  constructor() { }
 
   ngOnInit() {
     this.pes = new Pessoa;

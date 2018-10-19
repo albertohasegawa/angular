@@ -1,0 +1,19 @@
+<table>
+  <thead>
+    <tr>
+        <th>Nome</th>
+        <th>Sobrenome</th>
+        <th>Sexo</th>
+    </tr>
+  </thead>
+  <tbody>
+      <tr *ngFor="let item of listaPessoas; let i=index">
+          <th>{{item.nome}}</th>
+          <th>{{item.sobrenome}}</th>
+          <th>{{item.sexo}}</th>
+      </tr>
+
+  </tbody>
+
+</table>
+
