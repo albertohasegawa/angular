@@ -16,7 +16,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let fil of busca.Search; let i=index">
-            <td><a href="#">{{fil.Title}}</a></td>
+            <td><a href="detalhes/{{fil.imdbID}}">{{fil.Title}}</a></td>
             <td>{{fil.Year}}</td>
             <td>{{fil.imdbID}}</td>
             <td>{{fil.Type}}</td>

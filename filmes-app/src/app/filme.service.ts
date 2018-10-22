@@ -7,8 +7,8 @@ import { Search } from './search';
 
 
 const URL_DATA: string = "http://www.omdbapi.com/?";
-const API_KEY: string = "apikey=cffeece6";
-const FILME_ID: string = "i=tt3896198";
+const API_KEY: string = "&apikey=cffeece6";
+const FILME_ID: string = "&i=tt3896198";
 
 
 @Injectable({
@@ -23,14 +23,16 @@ export class FilmeService {
     return this.http.get<Filme[]>(URL_DATA + FILME_ID + '&' + API_KEY);
   }
 
-  getFilmePorId(): Observable<Filme> {
-    return this.http.get<Filme>(URL_DATA + FILME_ID + '&' + API_KEY);
+  getFilmePorId(id: string): Observable<Filme> {
+    let buscar: string = "i=" + id;
+    return this.http.get<Filme>(URL_DATA + buscar  + API_KEY);
   }
 
   getFilmesPorTitulo(titulo: string): Observable<Busca> {
     let buscar: string = "s=" + titulo; 
-    return this.http.get<Busca>(URL_DATA + buscar + '&' + API_KEY);
+    return this.http.get<Busca>(URL_DATA + buscar  + API_KEY);
   }
+
   
 
 }
