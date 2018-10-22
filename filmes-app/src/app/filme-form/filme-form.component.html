@@ -1,3 +1,31 @@
-<p>
-  filme-form works!
-</p>
+<p></p>
+<input [(ngModel)]="tit"><br>
+<button (click)="buscarPorTitulo()">Buscar!</button>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Released</th>
+            <th>Runtime</th>
+            <th>Genre</th>
+            <th>Country</th>
+            <th>Awards</th>
+            <th>Production</th>
+            <th>Poster</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let fil of filmes; let i=index">
+            <td><a href="#">{{fil.Title}}</a></td>
+            <td>{{fil.Released}}</td>
+            <td>{{fil.Runtime}}</td>
+            <td>{{fil.Genre}}</td>
+            <td>{{fil.Country}}</td>
+            <td>{{fil.Awards}}</td>
+            <td>{{fil.Production}}</td>
+            <td><img style="height: 200px" src="{{fil.Poster}}"></td>
+        </tr>
+    </tbody>
+</table>

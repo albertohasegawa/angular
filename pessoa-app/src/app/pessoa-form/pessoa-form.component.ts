@@ -1,6 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import {Pessoa} from '../pessoa';
 import {PessoaService} from '../pessoa.service';
+import { sendRequest } from 'selenium-webdriver/http';
 export interface Sexo {
   id: number;
   desc: string;
@@ -62,8 +63,13 @@ export class PessoaFormComponent implements OnInit {
   ngOnInit() {
     this.pes = new Pessoa;
     this.listaPessoas = new Array<Pessoa>();
-    this.pessoaService.getPessoas().subscribe(pessoas => this.listaPessoas = pessoas)
+    this.pessoaService.getPessoas().subscribe(request => this.listaPessoas = request)
+    // this.pessoaService.getPessoas().subscribe(function(pessoas) {
+    //     this.listaPessoas = pessoas;
+    // })
     console.log(this.listaPessoas);
+    
+    
     
   }
   

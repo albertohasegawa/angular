@@ -8,18 +8,21 @@ import { AppComponent } from './app.component';
 import { FilmeFormComponent } from './filme-form/filme-form.component';
 import { DashBoardComponent } from './dash-board/dash-board.component';
 import { FilmeDetailComponent } from './filme-detail/filme-detail.component';
-import { Filme } from 'src/filme';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     FilmeFormComponent,
     DashBoardComponent,
-    FilmeDetailComponent
+    FilmeDetailComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

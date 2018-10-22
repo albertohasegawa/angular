@@ -1,0 +1,26 @@
+<p></p>
+
+<input [(ngModel)]="tit"><br>
+<button (click)="buscarPorTitulo()">Buscar!</button>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Year</th>
+            <th>imdbID</th>
+            <th>Type</th>
+            <th>Poster</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let fil of busca.Search; let i=index">
+            <td><a href="#">{{fil.Title}}</a></td>
+            <td>{{fil.Year}}</td>
+            <td>{{fil.imdbID}}</td>
+            <td>{{fil.Type}}</td>
+            <td><img style="height: 200px" src="{{fil.Poster}}"></td>
+        </tr>
+    </tbody>
+</table>
