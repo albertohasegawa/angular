@@ -6,7 +6,7 @@ import { Busca } from "./busca";
 import { Search } from './search';
 
 
-const URL_DATA: string = "http://www.omdbapi.com/?";
+const URL_DATA: string = "localhost:8080/buscaT/";
 const API_KEY: string = "&apikey=cffeece6";
 const FILME_ID: string = "&i=tt3896198";
 
@@ -29,8 +29,8 @@ export class FilmeService {
   }
 
   getFilmesPorTitulo(titulo: string): Observable<Busca> {
-    let buscar: string = "s=" + titulo; 
-    return this.http.get<Busca>(URL_DATA + buscar  + API_KEY);
+    let buscar: string = "t=" + titulo; 
+    return this.http.get<Busca>(URL_DATA + buscar);
   }
 
   
