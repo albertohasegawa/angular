@@ -1,9 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Filme } from '../filme';
 import { FilmeService } from '../filme.service';
-import { Busca } from "../busca";
-import { Search } from '../search';
+
 @Component({
 
   selector: 'app-filme-form',
@@ -14,22 +12,24 @@ import { Search } from '../search';
 export class FilmeFormComponent implements OnInit {
 
   filme: Filme;
-  filmes: Busca;
+  filmes: Array<Filme>;
   tit: string;
 
   constructor(private fs: FilmeService) { }
 
+
   buscarPorTitulo() {
 
-    this.filmes = new Busca;
-    this.fs.getFilmesPorTitulo(this.tit).subscribe(req => this.filmes = req);
+    this.filmes = new Array<Filme>();
+    this.fs.getFilmes20().subscribe(req => this.filmes = req);
+    
   }
 
 
 
   ngOnInit() {
     this.filme = new Filme;
-    this.filmes = new Busca;
+    this.buscarPorTitulo();
     console.log(this.filmes);
     console.log(this.filme);
     

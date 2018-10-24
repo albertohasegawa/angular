@@ -33,6 +33,10 @@ export class FilmeService {
     return this.http.get<Filme[]>(URL_DATA + buscar);
   }
 
+  getFilmes20(): Observable<Filme[]> {
+    let buscar20: string = "/buscar20";
+    return this.http.get<Filme[]>(URL_DATA + buscar20);
+  }
   
 
 }

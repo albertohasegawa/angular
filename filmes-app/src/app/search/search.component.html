@@ -1,29 +1,30 @@
-<p></p>
 <div class="jumbotron bg-white" style="margin-top: 40px">
+    <h1>Busca para: {{titulo}}</h1>
+    
 
-    <div class="row">
-
-        <div class="col-3" *ngFor="let fil of filmes; let i=index">
+        <div class="row">
             
-            <div class="container border border-dark justify-content-md-center">
+            <div class="col-3" *ngFor="let fil of filmes; let i=index">
                 
-                <ng-container *ngIf="fil.Poster != 'N/A'; then dosomething; else doelse"></ng-container>
-                <ng-template #dosomething>
-                    <img class="img-fluid" width="500px" height="500px" src="{{fil.Poster}}">
-                </ng-template>
-                <ng-template #doelse>
-                    <img class="img-fluid" width="500px" height="500px" src="../../assets/images/not-available.jpg">
-                </ng-template>
+                <div class="container border border-dark justify-content-md-center">
+                    
+                    <ng-container *ngIf="fil.Poster != 'N/A'; then dosomething; else doelse"></ng-container>
+                    <ng-template #dosomething>
+                        <img class="img-fluid" width="500px" height="500px" src="{{fil.Poster}}">
+                    </ng-template>
+                    <ng-template #doelse>
+                        <img class="img-fluid" width="500px" height="500px" src="../../assets/images/not-available.jpg">
+                    </ng-template>
+                    
+                    <div class="row justify-content-md-center"><a href="detalhes/{{fil.imdbID}}">{{fil.Title}}</a></div>
+                    <div class="row justify-content-md-center">{{fil.Year}}</div>
+                    <div class="row justify-content-md-center">{{fil.Type}}</div>
+                </div>
                 
-                <div class="row justify-content-md-center"><a href="detalhes/{{fil.imdbID}}">{{fil.Title}}</a></div>
-                <div class="row justify-content-md-center">{{fil.Year}}</div>
-                <div class="row justify-content-md-center">{{fil.Type}}</div>
             </div>
-            
-        </div>
+
+
+    
         
     </div>
-
-
-
 </div>

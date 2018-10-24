@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Filme } from '../filme';
 import { FilmeService } from '../filme.service';
 import { Busca } from "../busca";
-import { Search } from '../search';
-import { ActivatedRoute } from '@angular/router';
+import { EventEmitterService } from '../event-emitter.service';
 
 @Component({
   selector: 'app-search',
@@ -18,7 +17,7 @@ export class SearchComponent implements OnInit {
   busca: Busca;
   titulo: string;
 
-  constructor(private route:ActivatedRoute, private fs: FilmeService) { }
+  constructor(private emitter: EventEmitterService, private fs: FilmeService) { }
 
   buscarPorTitulo() {
 
@@ -34,8 +33,16 @@ export class SearchComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.titulo = this.route.snapshot.paramMap.get('titulo');
+    this.emitter.get('buscar').subscribe(req => this.titulo = req);
+    this.emitter.get('buscar').subscribe(func => this.buscarAlt(this.titulo));
     this.buscarAlt(this.titulo);
+  }
+
+  onAtualizarLista(tit:string) {
+    console.log('recebendo titulo');
+    console.log(tit);
+    
+    
   }
 
 }
