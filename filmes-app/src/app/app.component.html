@@ -1,8 +1,6 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<li><a routerLink="dash">Home</a></li>
-<li><a routerLink="filmes">Filmes</a></li>
-<li><a routerLink="search">Buscar</a></li>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
     <a class="navbar-brand" href="#">Navbar</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -34,15 +32,16 @@
           <a class="nav-link disabled" href="#">Disabled</a>
         </li>
       </ul>
-      <form class="form-inline my-2 my-lg-0">
-        <input class="form-control mr-sm-2" type="search"  placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="search?s={{search}}" >Search</button>
-      </form>
+      <div class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" [(ngModel)]="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit" routerLink="search/{{search}}" >Search</button>
+      </div>
     </div>
   </nav>
-  
-  <router-outlet>
+  <div class="content-wrapper">
+      <div class="container-fluid" style="padding-top: 10px;">
     
-
-
-</router-outlet>
+        <router-outlet></router-outlet>    
+    
+      </div>
+    </div>

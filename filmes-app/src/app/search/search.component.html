@@ -1,26 +1,29 @@
 <p></p>
+<div class="jumbotron bg-white" style="margin-top: 40px">
 
-<input [(ngModel)]="tit"><br>
-<button (click)="buscarPorTitulo()">Buscar!</button>
+    <div class="row">
+
+        <div class="col-3" *ngFor="let fil of filmes; let i=index">
+            
+            <div class="container border border-dark justify-content-md-center">
+                
+                <ng-container *ngIf="fil.Poster != 'N/A'; then dosomething; else doelse"></ng-container>
+                <ng-template #dosomething>
+                    <img class="img-fluid" width="500px" height="500px" src="{{fil.Poster}}">
+                </ng-template>
+                <ng-template #doelse>
+                    <img class="img-fluid" width="500px" height="500px" src="../../assets/images/not-available.jpg">
+                </ng-template>
+                
+                <div class="row justify-content-md-center"><a href="detalhes/{{fil.imdbID}}">{{fil.Title}}</a></div>
+                <div class="row justify-content-md-center">{{fil.Year}}</div>
+                <div class="row justify-content-md-center">{{fil.Type}}</div>
+            </div>
+            
+        </div>
+        
+    </div>
 
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Year</th>
-            <th>imdbID</th>
-            <th>Type</th>
-            <th>Poster</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr *ngFor="let fil of busca.Search; let i=index">
-            <td><a href="detalhes/{{fil.imdbID}}">{{fil.Title}}</a></td>
-            <td>{{fil.Year}}</td>
-            <td>{{fil.imdbID}}</td>
-            <td>{{fil.Type}}</td>
-            <td><img style="height: 200px" src="{{fil.Poster}}"></td>
-        </tr>
-    </tbody>
-</table>
+
+</div>

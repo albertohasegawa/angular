@@ -9,7 +9,8 @@ const routes: Routes = [
   {path:'dash', component: DashBoardComponent},
   {path:'filmes', component: FilmeFormComponent},
   {path:'detalhes/:id', component: FilmeDetailComponent},
-  {path:'search', component: SearchComponent} 
+  {path:'search', component: SearchComponent},
+  {path: 'search/:titulo', component: SearchComponent}
 ];
 
 @NgModule({

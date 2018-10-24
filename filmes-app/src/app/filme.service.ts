@@ -6,7 +6,7 @@ import { Busca } from "./busca";
 import { Search } from './search';
 
 
-const URL_DATA: string = "localhost:8080/buscaT/";
+const URL_DATA: string = "http://localhost:8080/filme";
 const API_KEY: string = "&apikey=cffeece6";
 const FILME_ID: string = "&i=tt3896198";
 
@@ -24,13 +24,13 @@ export class FilmeService {
   }
 
   getFilmePorId(id: string): Observable<Filme> {
-    let buscar: string = "i=" + id;
+    let buscar: string = "/buscaId?id=" + id;
     return this.http.get<Filme>(URL_DATA + buscar  + API_KEY);
   }
 
-  getFilmesPorTitulo(titulo: string): Observable<Busca> {
-    let buscar: string = "t=" + titulo; 
-    return this.http.get<Busca>(URL_DATA + buscar);
+  getFilmesPorTitulo(titulo: string): Observable<Filme[]> {
+    let buscar: string = "/buscaT?t=" + titulo; 
+    return this.http.get<Filme[]>(URL_DATA + buscar);
   }
 
   

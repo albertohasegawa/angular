@@ -3,6 +3,7 @@ import { Filme } from '../filme';
 import { FilmeService } from '../filme.service';
 import { Busca } from "../busca";
 import { Search } from '../search';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-search',
@@ -15,19 +16,26 @@ export class SearchComponent implements OnInit {
   filmes: Array<Filme>;
   tit: string;
   busca: Busca;
+  titulo: string;
 
-
-  constructor(private fs: FilmeService) { }
+  constructor(private route:ActivatedRoute, private fs: FilmeService) { }
 
   buscarPorTitulo() {
 
-    this.busca = new Busca;
-    this.fs.getFilmesPorTitulo(this.tit).subscribe(req => this.busca = req);
+    this.filmes = new Array<Filme>();
+    this.fs.getFilmesPorTitulo(this.tit).subscribe(req => this.filmes = req);
     console.log(this.busca);
     
   }
 
+  buscarAlt(titulo: string) {
+    this.filmes = new Array<Filme>();
+    this.fs.getFilmesPorTitulo(titulo).subscribe(req => this.filmes = req);
+  }
+
   ngOnInit() {
+    this.titulo = this.route.snapshot.paramMap.get('titulo');
+    this.buscarAlt(this.titulo);
   }
 
 }
