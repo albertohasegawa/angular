@@ -1,8 +1,10 @@
+import { Search } from './../../models/search';
+import { EventEmitterService } from './../../services/event-emitter.service';
+import { Busca } from './../../models/busca';
+import { FilmeService } from './../../services/filme.service';
+import { Filme } from './../../models/filme';
 import { Component, OnInit } from '@angular/core';
-import { Filme } from '../filme';
-import { FilmeService } from '../filme.service';
-import { Busca } from "../busca";
-import { EventEmitterService } from '../event-emitter.service';
+
 
 @Component({
   selector: 'app-search',
@@ -12,7 +14,7 @@ import { EventEmitterService } from '../event-emitter.service';
 export class SearchComponent implements OnInit {
 
   filme: Filme;
-  filmes: Array<Filme>;
+  filmes: Array<Search>;
   tit: string;
   busca: Busca;
   titulo: string;
@@ -21,7 +23,7 @@ export class SearchComponent implements OnInit {
 
   buscarPorTitulo() {
 
-    this.filmes = new Array<Filme>();
+    this.filmes = new Array<Search>();
     this.fs.getFilmesPorTitulo(this.tit).subscribe(req => this.filmes = req);
     console.log(this.busca);
     

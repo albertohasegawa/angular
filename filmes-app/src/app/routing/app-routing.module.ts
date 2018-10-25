@@ -1,9 +1,11 @@
+import { SearchComponent } from './../components/search/search.component';
+
+import { FilmeDetailComponent } from './../components/filme-detail/filme-detail.component';
+import { FilmeFormComponent } from './../components/filme-form/filme-form.component';
+import { DashBoardComponent } from './../components/dash-board/dash-board.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { DashBoardComponent } from 'src/app/dash-board/dash-board.component';
-import { FilmeFormComponent} from 'src/app/filme-form/filme-form.component';
-import { FilmeDetailComponent  } from 'src/app/filme-detail/filme-detail.component';
-import { SearchComponent } from './search/search.component';
+
 
 const routes: Routes = [
   {path:'dash', component: DashBoardComponent},

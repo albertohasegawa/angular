@@ -1,5 +1,5 @@
+import { EventEmitterService } from './services/event-emitter.service';
 import { Component, OnInit } from '@angular/core';
-import { EventEmitterService } from './event-emitter.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 export class AppComponent implements OnInit{
   title = 'filmes-app';
   busca: string;
+  idusr: number = 1;
+  idnome: string = "alberto";
 
   constructor(private router: Router ,private emitter: EventEmitterService) {}
 
@@ -19,5 +21,12 @@ export class AppComponent implements OnInit{
     console.log('emitindo evento');
     this.emitter.get('buscar').emit(this.busca);
     
+  }
+  passarDadosUsrId(): void {
+    this.emitter.get('emitirdadosusrid').emit(this.idusr);
+  }
+
+  passarDadosUsrNome(): void {
+    this.emitter.get('emitirdadosusrnome').emit(this.idnome);
   }
 }
