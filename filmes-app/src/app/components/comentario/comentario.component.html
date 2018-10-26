@@ -1,11 +1,10 @@
 <div class="container">
-  <h1 style = "text-align: center">Comentários</h1>
-  <div *ngFor="let com of comentarios">
-    <div class="container border">
-      {{com.texto}}
-    </div>
-
-  </div>
+    <h1 style = "text-align: center">Comentários</h1>
+    <div *ngFor="let com of comentarios">
+      <div class="container border">
+       {{usuario.nome}} POSTOU: {{com.texto}}  ------------ as {{com.hora}}
+        </div>
+      </div>
   
   
   
@@ -13,6 +12,7 @@
     <textarea class="col" rows="5" [(ngModel)]="texto"></textarea>
   </div>
   <div class="row">
+    <img src="{{url}}">
     <button class="btn btn-primary col-6 mx-auto"  (click)="inserirComentario()">Comentar!</button>
   </div>
 

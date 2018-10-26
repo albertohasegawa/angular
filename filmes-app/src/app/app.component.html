@@ -27,13 +27,31 @@
           <a class="dropdown-item" href="#">Minhas indicações</a>
         </div>
       </li>
-
+      <div class="form-inline my-2 my-lg-0">
+          <input class="form-control mr-sm-2" type="search" [(ngModel)]="busca" placeholder="Buscar Filmes" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" routerLink="search" type="submit" (click)="pesquisar()">Buscar!</button>
+        </div>
     </ul>
-    <div class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" [(ngModel)]="busca" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-success my-2 my-sm-0" routerLink="search" type="submit" (click)="pesquisar()">Search</button>
-    </div>
+
   </div>
+  <div class="navbar-text">
+      <div class="dropdown dropleft">
+        <span class="dropdown-toggle click" id="ddlUsuario" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <i class="fa fa-user"></i>
+          Olá, {{ usuario.nome }}
+        </span>
+        <div class="dropdown-menu" aria-labelledby="ddlUsuario">
+          <button class="dropdown-item click" type="button">
+            <i class="fa fa-pencil fa-fw"></i>
+            &nbsp;Perfil
+          </button>
+          <button class="dropdown-item click" type="button" (click)="sair()">
+            <i class="fa fa-sign-out fa-fw"></i>
+            &nbsp;Sair
+          </button>
+        </div>
+      </div>
+    </div>
 </nav>
 <div class="content-wrapper">
   <div class="container-fluid" style="padding-top: 10px;">

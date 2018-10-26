@@ -29,5 +29,6 @@
         
       </div>
     </div>
-    <comentario url="{{fil.Poster}}" id_filme="{{fil.imdbID}}" usrid=1></comentario>
+
+    <app-comentario *ngIf="fil.Poster" url="{{fil.Poster}}" id_filme="{{fil.imdbID}}" usrid=1></app-comentario>
     </div>
