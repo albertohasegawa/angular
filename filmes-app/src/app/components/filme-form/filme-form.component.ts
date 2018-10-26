@@ -14,7 +14,7 @@ export class FilmeFormComponent implements OnInit {
   filme: Filme;
   filmes: Array<Filme>;
   tit: string;
-
+  
   constructor(private fs: FilmeService) { }
 
 
