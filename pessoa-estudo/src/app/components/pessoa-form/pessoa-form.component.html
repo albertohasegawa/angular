@@ -1,0 +1,13 @@
+<p></p>
+Nome:<input [(ngModel)]="pessoa.nome"><br>
+CPF:<input [(ngModel)]="pessoa.cpf" disabled="{{alterarTrue}}"><br>
+Email:<input [(ngModel)]="pessoa.email"><br>
+Cep:<input [(ngModel)]="pessoa.endereco.cep"><br>
+Logradouro:<input [(ngModel)]="pessoa.endereco.logradouro"><br>
+Número:<input [(ngModel)]="pessoa.endereco.numero"><br>
+Complemento:<input [(ngModel)]="pessoa.endereco.complemento"><br>
+Bairro:<input [(ngModel)]="pessoa.endereco.bairro"><br>
+Cidade:<input [(ngModel)]="pessoa.endereco.cidade"><br>
+UF:<input [(ngModel)]="pessoa.endereco.uf"><br>
+<button (click)="inserir()" routerLink="/pessoa" *ngIf="!alterarTrue">Inserir</button>
+<button (click)="alterar()" routerLink="/pessoa" *ngIf="alterarTrue">Alterar</button>
